@@ -90,7 +90,7 @@ create view percent_population_vaccinated as
 select dea.continent, dea.location, dea.date,dea.population, vac.new_vaccinations, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, dea.date) as totalvac from covidvaccination vac
 join coviddeaths dea
 on dea.location=vac.location and dea.date=vac.date
-where dea.continent is not null;percent_population_vaccinated
+where dea.continent is not null;
 
 
 
